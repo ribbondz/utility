@@ -6,11 +6,12 @@ func SliceCopyFloat(list []float64) (dst []float64) {
 	return
 }
 
-func SliceCopyFloatFloat(list [][]float64) (dst [][]float64) {
-	for _, v := range list {
-		dst = append(dst, SliceCopyFloat(v))
+func SliceCopyFloatFloat(list [][]float64) [][]float64 {
+	dst := make([][]float64, len(list))
+	for i, v := range list {
+		dst[i] = SliceCopyFloat(v)
 	}
-	return
+	return dst
 }
 
 func SliceCopyInt(list []int) (result []int) {
@@ -19,11 +20,12 @@ func SliceCopyInt(list []int) (result []int) {
 	return
 }
 
-func SliceCopyIntInt(list [][]int) (dst [][]int) {
-	for _, v := range list {
-		dst = append(dst, SliceCopyInt(v))
+func SliceCopyIntInt(list [][]int) [][]int {
+	dst := make([][]int, len(list))
+	for i, v := range list {
+		dst[i] = SliceCopyInt(v)
 	}
-	return
+	return dst
 }
 
 func SliceCopyString(list []string) (result []string) {
